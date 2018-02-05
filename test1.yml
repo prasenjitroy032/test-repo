@@ -1,0 +1,9 @@
+---
+- hosts: local
+  connection: local
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: create file
+      fetch: src=/etc/resolv.conf dest=/tmp/prefix1-{{ ansible_hostname }} flat=yes
+
