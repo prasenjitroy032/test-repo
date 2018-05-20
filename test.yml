@@ -1,9 +1,10 @@
 ---
-- hosts: local
+- hosts: 127.0.0.1
+#  become_method: sudo
+ # become_user: root
+ # become: yes
   connection: local
-  become: yes
-  gather_facts: yes
   tasks:
-    - name: create file
-      fetch: src=/etc/hosts dest=/tmp/prefix23-{{ ansible_hostname }} flat=yes
-
+    - command: echo {{ item }}
+      with_items: [ 0, 2, 4, 6, 8, 10 ]
+      when: item > 8
