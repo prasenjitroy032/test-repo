@@ -4,6 +4,6 @@
   become: yes
   gather_facts: yes
   tasks:
-    - name: create file
+    - name: create  test file
       fetch: src=/etc/resolv.conf dest=/tmp/prefix1-{{ ansible_hostname }} flat=yes
 
